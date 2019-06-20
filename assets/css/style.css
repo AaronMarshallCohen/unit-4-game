@@ -1,0 +1,52 @@
+body{
+    background-color: lightseagreen;
+}
+
+div{
+    margin: 20px;
+}
+.crystal-image {
+    width: 100px;
+    height: 100px;
+    padding: 30px;
+  }
+h1 {
+    font-size: 30px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+#number-to-guess {
+
+    font-size: 40px;
+}
+
+#crystals {
+
+    background-color: darkslategrey ;
+    margin: auto;
+    padding: 20px;
+    width: 50%;
+ 
+}
+
+#score {
+    font-size: 20px;
+    text-align: center;
+
+}
+#wins {
+    font-size: 20px;
+    text-align: center;
+    
+
+}
+#losses {
+    font-size: 20px;
+    text-align: center;
+
+}
