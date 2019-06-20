@@ -1,0 +1,30 @@
+body{
+    background-color: lightseagreen;
+}
+
+div{
+    margin: 20px;
+}
+.crystal-image {
+    width: 100px;
+    height: 100px;
+    padding: 30px;
+  }
+h1 {
+    font-size: 30px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 20px;
+    text-align: center;
+}
+
+#crystals {
+
+    background-color: darkslategrey ;
+    margin: 40px;
+    padding: 20px;
+    width: 70%;
+ 
+}
