@@ -17,7 +17,9 @@
   $("#number-to-guess").text(targetNumber);
   
   // Here we created a counter, we'll be using this to track the user's total.
-  var counter = 0;
+  var userCounter = 0;
+  var winCounter = 0;
+  var lossCounter = 0;
 
  //Get a random number between 1 and 12 for each crystal
   var redCrystalNumber = getRandomInt(1, 12); 
@@ -59,35 +61,65 @@
   $("#crystals").append(yellowCrystal);
   $("#crystals").append(greenCrystal);
 
+  
+$("#score").text("Score: " + userCounter);
+$("#wins").text("Wins: " + winCounter);
+$("#losses").text("Losses: " + lossCounter);
+
+
   // Here we created an on-click event that responds to button clicks of the crystal image.
   $(".crystal-image").on("click", function() {
     // pull the data out of the html
     var increment = parseInt($(this).attr("data-crystalvalue"));
 
 // We'll then increment the counter each time by the randomly selected number.
-    // If the number is 11, then users can win. (11 + 11 + 11 + 11 + 11 = 55)
-    // If the number is 10, then there is no way for the user to win. (10 + 10 + 10 + 10 + 10 = 60)
-    counter += increment;
+   
+    userCounter += increment;
 
-// We then output the new counter value each time the crystal is clicked.
-alert("Your new score is: " + counter);
+ // We then output the new counter value each time the crystal is clicked.
+ $("#score").text("Score: " + userCounter);
+
 
 // Here we created some logic to "check" if the click counter matches the targetNumber.
     // Remember, this click event will be triggered with each click.
     // With each click the counter will increase by 10 and be re-evaluated against target.
-    if (counter === targetNumber) {
+    if (userCounter === targetNumber) {
 
 // If the numbers match we'll celebrate the user's win.
-alert("You win!");
+
+alert("You win!!");
+winCounter++;
+$("#wins").text("Wins: " + winCounter);
+reset();
+
 }
 
 // Here we added an "else if" condition. If the user's counter ever exceeds the targetNumber...
-else if (counter >= targetNumber) {
+else if (userCounter >= targetNumber) {
 
 // Then they are alerted with a loss.
+
 alert("You lose!!");
+lossCounter++;
+$("#losses").text("Losses: " + lossCounter);
+reset();
+
+
 }
 
+// reset targetNumber and crystal Numbers
+function reset(){
+  userCounter = 0;
+  $("#score").text("Score: " + userCounter);
+  redCrystalNumber = getRandomInt(1, 12); 
+  blueCrystalNumber = getRandomInt(1, 12);
+  yellowCrystalNumber = getRandomInt(1, 12);
+  greenCrystalNumber = getRandomInt(1, 12);
+  targetNumber = getRandomInt(19, 120);
+  $("#number-to-guess").text(targetNumber);
+  
+
+}
 
 
 
